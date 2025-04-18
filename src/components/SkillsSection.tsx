@@ -5,7 +5,6 @@ import React from "react";
 import { motion, Variants } from "framer-motion";
 // 使用 next/image 可能需要配置 remotePatterns 在 next.config.js 中允许 skillicons.dev
 // 如果不使用 next/image 或者配置麻烦，可以换回普通的 <img> 标签
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useTheme } from "@/context/ThemeProvider";
 

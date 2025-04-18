@@ -74,7 +74,7 @@ export default function Hero() {
     }
     window.addEventListener('deviceorientation', orient)
     return () => window.removeEventListener('deviceorientation', orient)
-  }, [])
+  }, [rotX, rotY])
 
   /* ------------------------------ Render ------------------------------ */
   const { greeting, description } = slides[idx]

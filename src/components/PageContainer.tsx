@@ -1,7 +1,7 @@
 // src/components/PageContainer.tsx
 'use client'
 
-import React, { ReactNode, useEffect, useRef } from 'react'
+import React, { ReactNode, useEffect } from 'react'
 import {
     motion,
     useReducedMotion,
