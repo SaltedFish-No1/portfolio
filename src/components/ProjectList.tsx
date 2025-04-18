@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import { Project } from '@/types'
 import ProjectCard from './ProjectCard'
 import { motion, AnimatePresence } from 'framer-motion'
 import { projects } from '@/data/project'

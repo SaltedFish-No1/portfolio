@@ -9,7 +9,7 @@ import ProjectList from '@/components/ProjectList';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
 
-export default function Page({ params }: { params: { lang: string } }) {
+export default function Page() {
 
   const t = useTranslations()
   return (
