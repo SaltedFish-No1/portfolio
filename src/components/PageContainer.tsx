@@ -12,11 +12,10 @@ import {
 } from 'framer-motion'
 
 interface PageContainerProps {
-    isAnimating?: boolean
     children: ReactNode
 }
 
-export default function PageContainer({ isAnimating, children }: PageContainerProps) {
+export default function PageContainer({ children }: PageContainerProps) {
     const shouldReduce = useReducedMotion()
     const rawX = useMotionValue(0)
     const rawY = useMotionValue(0)
@@ -40,7 +39,6 @@ export default function PageContainer({ isAnimating, children }: PageContainerPr
       rgba(var(--glass-light),0.15),
       transparent 70%
     )`
-    if (isAnimating) {
         // pointer move for desktop
         useEffect(() => {
             if (shouldReduce) return
@@ -85,7 +83,6 @@ export default function PageContainer({ isAnimating, children }: PageContainerPr
             return () => window.removeEventListener('deviceorientation', onOrient)
         }, [rawX, rawY, shouldReduce])
 
-    }
     return (
         <section className="relative min-h-screen w-full overflow-hidden bg-transparent">
             {/* Stage light overlay */}

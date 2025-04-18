@@ -83,7 +83,7 @@ export default function ContactForm() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0, x: shake ? [0, -10, 10, -10, 10, 0] : 0 }}
                 transition={{ type: 'spring', stiffness: 120, damping: 20 }}
-                className="glass-card p-8 space-y-6 w-full min-w-400px max-w-[60vw] mx-auto"
+                className="glass-card p-8 space-y-6 w-full min-w-400px max-w-[60vw] mx-auto mt-16"
                 aria-label="Contact form"
             >
                 {/* Name Field */}

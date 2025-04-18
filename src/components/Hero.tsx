@@ -11,25 +11,19 @@ import {
 import { useEffect, useState } from 'react'
 
 const slides = [
-  {
-    greeting: "Hey, I'm Haotian",
-    description:
-      'Front‑End Engineer crafting transparent, layered digital experiences.'
-  },
-  { greeting: '你好，我是昊天', description: '专注构建极简科技感的前端体验。' },
-  {
-    greeting: 'やあ、ハオティアンです',
-    description: '開發令人驚豔且簡約的網站界面。'
-  },
-  {
-    greeting: "Salut, c'est Haotian",
-    description: 'Interface épurée avec animations subtiles.'
-  },
-  {
-    greeting: 'Hola, soy Haotian',
-    description: 'Experiencias digitales con efecto vidrio.'
-  }
-]
+  { greeting: '你好，我是昊天', description: '欢迎光临我的主页。' }, // 中文
+  { greeting: "Hello, I'm Haotian", description: 'Welcome to my homepage.' }, // English
+  { greeting: 'こんにちは、昊天です', description: '私のホームページへようこそ。' }, // Japanese
+  { greeting: 'Hola, soy Haotian', description: 'Bienvenido a mi página web.' }, // Spanish
+  { greeting: 'Bonjour, je suis Haotian', description: "Bienvenue sur ma page d'accueil." }, // French
+  { greeting: 'Hallo, ich bin Haotian', description: 'Willkommen auf meiner Homepage.' }, // German
+  { greeting: '안녕하세요, 저는 하오톈입니다', description: '제 홈페이지에 오신 것을 환영합니다.' }, // Korean
+  { greeting: 'Привет, я Хаотянь', description: 'Добро пожаловать на мою домашнюю страницу.' }, // Russian
+  { greeting: 'مرحبًا، أنا هاوتيان', description: 'أهلاً بك في صفحتي الرئيسية.' }, // Arabic
+  { greeting: 'Olá, eu sou o Haotian', description: 'Bem-vindo à minha página inicial.' }, // Portuguese
+  { greeting: 'Ciao, sono Haotian', description: 'Benvenuto nella mia pagina personale.' }, // Italian
+];
+
 
 export default function Hero() {
   /* --------------------------- 文案循环，无闪烁 --------------------------- */

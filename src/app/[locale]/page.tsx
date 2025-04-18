@@ -11,15 +11,13 @@ import Footer from '@/components/Footer';
 export default function Page() {
   return (
     <section className="p-6">
-      <PageContainer isAnimating={true}>
+      <PageContainer>
         <Hero />
         <About />
         <SkillsSection />
       </PageContainer>
-      <PageContainer>
         <ProjectList />
         <ContactForm />
-      </PageContainer>
       <Footer />
 
     </section>

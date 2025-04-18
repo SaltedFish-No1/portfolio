@@ -14,7 +14,7 @@ export default function Footer() {
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className=" bottom-0 left-0 w-full bg-[var(--color-surface)] backdrop-blur-[var(--backdrop-blur)] border-t border-[var(--gray-400)] shadow-glass z-50"
+      className=" bottom-0 left-0 w-full bg-[var(--color-surface)] backdrop-blur-[var(--backdrop-blur)] border-t border-[var(--gray-400)] shadow-glass z-50 mt-16"
     >
       <div className="max-w-screen-xl mx-auto px-6 py-4 flex justify-between items-center">
         <span className="text-xs text-gray-400">© {year} Haotian Chen. All rights reserved.</span>
