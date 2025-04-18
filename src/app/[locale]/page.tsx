@@ -6,8 +6,8 @@ import { useTranslations } from 'next-intl'
 import PageContainer from '@/components/PageContainer';
 import SkillsSection from '@/components/SkillsSection';
 import ProjectList from '@/components/ProjectList';
-import { Contact } from 'lucide-react';
 import ContactForm from '@/components/ContactForm';
+import Footer from '@/components/Footer';
 
 export default function Page({ params }: { params: { lang: string } }) {
 
@@ -22,9 +22,8 @@ export default function Page({ params }: { params: { lang: string } }) {
       <PageContainer>
         <ProjectList />
         <ContactForm />
+        <Footer />
       </PageContainer>
-
-
     </section>
   );
 }
