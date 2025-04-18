@@ -1,0 +1,13 @@
+{
+  "About": {
+    "name": "Haotian Chen",
+    "self-introduction": "I'm a passionate frontend engineer who loves building beautiful and performant web experiences. I specialize in React, TypeScript, and modern UI design."
+  },
+  "Skills": {
+    "title": "My Skills",
+    "proficiencyExpert": "Expert",
+    "proficiencyAdvanced": "Advanced",
+    "proficiencyIntermediate": "Intermediate",
+    "proficiencyBasic": "Basic"
+  }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" class="text-white bg-black">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Blog • Haotian</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="global.css">
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+</head>
+<body>
+
+<nav class="glass fixed w-full top-0 z-50 backdrop-blur-sm" data-aos="fade-down">
+  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="index.html#hero" class="text-2xl font-extrabold shimmer">HC</a>
+    <div class="hidden md:flex gap-8">
+      <a href="index.html#about">About</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#timeline">Timeline</a>
+      <a href="projects.html">Projects</a>
+      <a href="blog.html" aria-current="page" class="font-semibold">Blog</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <button id="menuBtn" class="md:hidden p-2"><span class="iconify" data-icon="mdi:menu"></span></button>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden glass p-6 space-y-4 text-center">
+    <a href="projects.html" class="block">Projects</a>
+    <a href="index.html#contact" class="block">Contact</a>
+  </div>
+</nav>
+
+<section class="pt-32 pb-20" data-aos="fade-up">
+  <div class="container mx-auto px-6 max-w-3xl">
+    <h1 class="text-5xl font-extrabold shimmer text-center mb-12">Engineering Notes</h1>
+
+    <article class="mb-12">
+      <h2 class="text-3xl font-semibold mb-2">Building a Glassmorphic UI with Tailwind v4</h2>
+      <p class="text-gray-400 mb-2 text-sm">Apr 16, 2025 • 8 min read</p>
+      <p class="text-gray-300">Deep dive into blur, transparency and performance tricks…</p>
+      <a href="#" class="underline text-sm">Read more →</a>
+    </article>
+    <!-- 更多文章 … -->
+  </div>
+</section>
+
+<footer class="glass py-6 text-center text-gray-500">
+  © <span id="year"></span> Haotian Chen
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

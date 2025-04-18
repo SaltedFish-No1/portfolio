@@ -1,0 +1,220 @@
+/* styles/globals.css */
+@import "tailwindcss";
+
+/* 引入内置 utilities，支持 @apply */
+@reference "tailwindcss/utilities.css" layer(utilities);
+
+/* 定义设计令牌 —— Light 模式下的变量 */
+@theme {
+  /* 颜色 */
+  --color-primary: #000000;
+  --color-secondary: #FFFFFF;
+  --color-accent: #333333;
+  --color-surface: rgba(255 255 255 / 0.10);
+  --color-surface-hover: rgba(255 255 255 / 0.18);
+
+  /* 灰度层级 */
+  --gray-100: #f5f5f5;
+  --gray-200: #e5e5e5;
+  --gray-300: #d4d4d4;
+  --gray-400: #a3a3a3;
+  --gray-500: #737373;
+  --gray-600: #525252;
+  --gray-700: #404040;
+
+  /* 玻璃效果 */
+  --backdrop-blur: 10px;
+  --shadow-glass: 0 4px 30px rgba(0 0 0 / 0.10);
+
+  /* 圆角 & 间距 */
+  --radius-lg: 1rem;
+  --spacing-4: 1rem;
+}
+
+/* 3️⃣ 手动切换 dark 变体 —— 只要上层有 .dark 就生效 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* 4️⃣ Base 层：注入深色模式下的变量覆盖 & 全局基础 */
+@layer base {
+
+  /* 深色模式覆盖 */
+  .dark {
+    --color-primary: #FFFFFF;
+    --color-secondary: #000000;
+    --color-accent: #CCCCCC;
+    --color-surface: rgba(0 0 0 / 0.06);
+    --color-surface-hover: rgba(0 0 0 / 0.10);
+  }
+
+  /* 全局背景 & 文字色 */
+  html {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    font-family: var(--font-en), var(--font-zh), sans-serif;
+  }
+
+  /* 基础排版 */
+  body {
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.6;
+  }
+}
+
+/* 5️⃣ Components 层：统一玻璃卡片、导航栏、按钮等常用组件样式 */
+@layer components {
+
+  /* 半透明固定导航栏 */
+  .glass-nav {
+    @apply fixed top-0 left-0 w-full px-[var(--spacing-4)] py-[var(--spacing-4)] transition-all duration-300 ease-in-out;
+    background-color: var(--color-surface);
+    backdrop-filter: blur(var(--backdrop-blur));
+    border-bottom: 1px solid var(--gray-200);
+    z-index: 50;
+  }
+
+
+
+  /* 玻璃卡片 */
+  .glass-card {
+    @apply p-[var(--spacing-4)] rounded-[var(--radius-lg)] transition-all duration-300 ease-in-out;
+
+    background-color: var(--color-surface);
+    backdrop-filter: blur(var(--backdrop-blur));
+    box-shadow: var(--shadow-glass);
+    border: 1px solid var(--gray-200);
+    transform: scale(1);
+    /* 初始不缩放 */
+  }
+
+
+
+  .glass-card:hover {
+    background-color: var(--color-surface-hover);
+    transform: scale(1.03);
+    /* 放大 */
+    backdrop-filter: blur(calc(var(--backdrop-blur) * 1.5));
+    /* 模糊增强 */
+
+    box-shadow:
+      var(--shadow-glass),
+      0 0 30px rgba(255, 255, 255, 0.2),
+      0 0 40px var(--color-accent);
+    /* glow 层叠 */
+  }
+
+  /* 可选：模态卡片增强 */
+  .modal-card {
+    @apply bg-[var(--color-surface)] text-[var(--color-primary)] backdrop-blur-xl rounded-2xl shadow-xl;
+  }
+
+
+
+  /* 主色按钮 */
+  .btn {
+    @apply inline-block font-medium px-[calc(var(--spacing-4)*1.5)] py-[var(--spacing-4)] rounded-[var(--radius-lg)];
+    background-color: var(--color-accent);
+    color: var(--color-secondary);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .btn:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+  }
+
+
+  /* 玻璃输入框 */
+  .glass-input {
+    @apply w-full px-[var(--spacing-4)] py-[calc(var(--spacing-4)/2)] rounded-[var(--radius-lg)];
+    background-color: var(--color-surface);
+    backdrop-filter: blur(var(--backdrop-blur));
+    border: 1px solid var(--gray-300);
+    color: var(--color-primary);
+    transition: border-color 0.2s ease;
+  }
+
+  .glass-input:focus {
+    border-color: var(--color-accent);
+    outline: none;
+  }
+
+  /* Header */
+  .header {
+    @apply flex items-center justify-between w-full px-[var(--spacing-4)] py-[var(--spacing-4)] transition-all duration-300 ease-in-out;
+    background-color: var(--color-surface);
+    backdrop-filter: blur(var(--backdrop-blur));
+    box-shadow: 0 4px 30px var(--color-secondary);
+  }
+
+  .header-btn {
+    @apply flex items-center justify-center gap-1 px-3 py-1.5 rounded-full text-sm font-medium shadow-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out hover:scale-105 active:scale-95 min-w-[64px] h-9;
+  }
+
+  .header-btn:hover {
+    @apply bg-gray-200 dark:bg-gray-700;
+    /* glow hover effect */
+    box-shadow:
+      0 0 10px rgba(255, 255, 255, 0.2),
+      0 0 20px var(--color-accent);
+    background-color: var(--color-surface);
+    backdrop-filter: blur(var(--backdrop-blur));
+
+  }
+
+  .header-btn-icon {
+    @apply w-4 h-4 opacity-80;
+  }
+
+  .header-btn-label {
+    @apply inline-block w-[30px] text-center transition-all duration-300 ease-in-out select-none;
+  }
+
+  .heading-1 {
+    @apply text-3xl font-bold text-gray-900 dark:text-gray-100;
+    /* 文字透明度 */
+    line-height: 1.2;
+    /* 行高 */
+    margin-bottom: 1rem;
+    /* 段落间距 */
+  }
+
+  .heading-2 {
+    @apply text-2xl font-bold text-gray-900 dark:text-gray-100;
+    /* 文字透明度 */
+    line-height: 1.3;
+    /* 行高 */
+    margin-bottom: 1rem;
+    /* 段落间距 */
+  }
+
+  .paragraph {
+    @apply text-sm text-gray-500 dark:text-gray-400 leading-6;
+    /* 文字透明度 */
+    line-height: 1.5;
+    /* 行高 */
+    margin-bottom: 1rem;
+    /* 段落间距 */
+
+  }
+}
+
+/* Utilities 层：如果还需要自定义工具类，可在此处添加 */
+@layer utilities {
+
+  /* 例：统一控制玻璃模糊强度 */
+  .blur-strong {
+    backdrop-filter: blur(20px);
+  }
+
+  .animate-pulseSlow {
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  .delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .noise-overlay {
+    background-image: url('/images/noise.png');
+  }
+}

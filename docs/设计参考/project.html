@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" class="text-white bg-black">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Projects • Haotian</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="global.css">
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+</head>
+<body>
+
+<nav class="glass fixed w-full top-0 z-50 backdrop-blur-sm" data-aos="fade-down">
+  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="index.html#hero" class="text-2xl font-extrabold shimmer">HC</a>
+    <div class="hidden md:flex gap-8">
+      <a href="index.html#about">About</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#timeline">Timeline</a>
+      <a href="projects.html" aria-current="page" class="font-semibold">Projects</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+    <button id="menuBtn" class="md:hidden p-2"><span class="iconify" data-icon="mdi:menu"></span></button>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden glass p-6 space-y-4 text-center">
+    <a href="index.html#about" class="block">About</a>
+    <a href="blog.html" class="block">Blog</a>
+    <a href="index.html#contact" class="block">Contact</a>
+  </div>
+</nav>
+
+<section class="pt-32 pb-20" data-aos="fade-up">
+  <div class="container mx-auto px-6">
+    <h1 class="text-5xl font-extrabold shimmer text-center mb-12">All Projects</h1>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <article class="glass p-6 rounded-2xl hover:scale-105 transition">
+        <h2 class="text-2xl font-semibold mb-2">AI Resume Generator</h2>
+        <p class="text-gray-300 mb-3">Next.js + OpenAI to craft HR‑ready resumes.</p>
+        <a href="#" class="underline text-sm">Live ↗</a>
+      </article>
+      <!-- 追加更多项目 … -->
+    </div>
+  </div>
+</section>
+
+<footer class="glass py-6 text-center text-gray-500">
+  © <span id="year"></span> Haotian Chen
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

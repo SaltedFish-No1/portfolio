@@ -1,0 +1,216 @@
+<svg width="150" height="120" xmlns="http://www.w3.org/2000/svg">
+  <!-- 黑色背景 -->
+  <rect width="100%" height="100%" fill="#000000"/>
+  
+  <!-- 定义轻微发光滤镜，stdDeviation设为1，更符合像素风 -->
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- 外部 C 形轮廓组 -->
+  <g id="outerC" filter="url(#glow)">
+    <!-- 第1行 (y=10)：全行点亮，x=10到120 -->
+    <circle cx="10"  cy="10" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0s"/>
+    </circle>
+    <circle cx="20"  cy="10" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.05s"/>
+    </circle>
+    <circle cx="30"  cy="10" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.1s"/>
+    </circle>
+    <circle cx="40"  cy="10" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.15s"/>
+    </circle>
+    <circle cx="50"  cy="10" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.2s"/>
+    </circle>
+    <circle cx="60"  cy="10" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.25s"/>
+    </circle>
+    <circle cx="70"  cy="10" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.3s"/>
+    </circle>
+    <circle cx="80"  cy="10" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.35s"/>
+    </circle>
+    <circle cx="90"  cy="10" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.4s"/>
+    </circle>
+    <circle cx="100" cy="10" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.45s"/>
+    </circle>
+    <circle cx="110" cy="10" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.5s"/>
+    </circle>
+    <circle cx="120" cy="10" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.55s"/>
+    </circle>
+    
+    <!-- 第2行 (y=20)：显示左侧及右侧局部 -->
+    <circle cx="10"  cy="20" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.1s"/>
+    </circle>
+    <circle cx="100" cy="20" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.15s"/>
+    </circle>
+    <circle cx="120" cy="20" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.2s"/>
+    </circle>
+    
+    <!-- 第3行 (y=30)：仅显示左侧 -->
+    <circle cx="10"  cy="30" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.15s"/>
+    </circle>
+    
+    <!-- 第4行 (y=40)：左侧横排，x=10到80 -->
+    <circle cx="10"  cy="40" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.1s"/>
+    </circle>
+    <circle cx="20"  cy="40" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.15s"/>
+    </circle>
+    <circle cx="30"  cy="40" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.2s"/>
+    </circle>
+    <circle cx="40"  cy="40" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.25s"/>
+    </circle>
+    <circle cx="50"  cy="40" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.3s"/>
+    </circle>
+    <circle cx="60"  cy="40" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.35s"/>
+    </circle>
+    <circle cx="70"  cy="40" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.4s"/>
+    </circle>
+    <circle cx="80"  cy="40" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.45s"/>
+    </circle>
+    
+    <!-- 第5行 (y=50)：仅显示左侧 -->
+    <circle cx="10"  cy="50" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.15s"/>
+    </circle>
+    
+    <!-- 第6行 (y=60)：显示左侧和右侧局部 -->
+    <circle cx="10"  cy="60" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.2s"/>
+    </circle>
+    <circle cx="100" cy="60" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.25s"/>
+    </circle>
+    <circle cx="120" cy="60" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.3s"/>
+    </circle>
+    
+    <!-- 第7行 (y=70)：显示左侧和右侧局部 -->
+    <circle cx="10"  cy="70" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.25s"/>
+    </circle>
+    <circle cx="100" cy="70" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.3s"/>
+    </circle>
+    <circle cx="120" cy="70" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.35s"/>
+    </circle>
+    
+    <!-- 第8行 (y=80)：仅显示左侧 -->
+    <circle cx="10"  cy="80" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.3s"/>
+    </circle>
+    
+    <!-- 第9行 (y=90)：显示左侧和右侧局部 -->
+    <circle cx="10"  cy="90" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.35s"/>
+    </circle>
+    <circle cx="100" cy="90" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.4s"/>
+    </circle>
+    
+    <!-- 第10行 (y=100)：全行点亮 -->
+    <circle cx="10"  cy="100" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0s"/>
+    </circle>
+    <circle cx="20"  cy="100" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.05s"/>
+    </circle>
+    <circle cx="30"  cy="100" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.1s"/>
+    </circle>
+    <circle cx="40"  cy="100" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.15s"/>
+    </circle>
+    <circle cx="50"  cy="100" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.2s"/>
+    </circle>
+    <circle cx="60"  cy="100" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.25s"/>
+    </circle>
+    <circle cx="70"  cy="100" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.3s"/>
+    </circle>
+    <circle cx="80"  cy="100" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.35s"/>
+    </circle>
+    <circle cx="90"  cy="100" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.4s"/>
+    </circle>
+    <circle cx="100" cy="100" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.45s"/>
+    </circle>
+    <circle cx="110" cy="100" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.5s"/>
+    </circle>
+    <circle cx="120" cy="100" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite" begin="0.55s"/>
+    </circle>
+  </g>
+  
+  <!-- 内部 H 形（共享左侧边），主要为右侧竖线和中间横条 -->
+  <g id="innerH" filter="url(#glow)">
+    <!-- H 右侧竖线：设在 x=50，覆盖第2～第9行 -->
+    <circle cx="50" cy="20" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="1;0.6;1" dur="1.5s" repeatCount="indefinite" begin="0.2s"/>
+    </circle>
+    <circle cx="50" cy="30" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="1;0.6;1" dur="1.5s" repeatCount="indefinite" begin="0.25s"/>
+    </circle>
+    <circle cx="50" cy="40" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="1;0.6;1" dur="1.5s" repeatCount="indefinite" begin="0.3s"/>
+    </circle>
+    <circle cx="50" cy="60" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="1;0.6;1" dur="1.5s" repeatCount="indefinite" begin="0.35s"/>
+    </circle>
+    <circle cx="50" cy="70" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="1;0.6;1" dur="1.5s" repeatCount="indefinite" begin="0.4s"/>
+    </circle>
+    <circle cx="50" cy="80" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="1;0.6;1" dur="1.5s" repeatCount="indefinite" begin="0.45s"/>
+    </circle>
+    <circle cx="50" cy="90" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="1;0.6;1" dur="1.5s" repeatCount="indefinite" begin="0.5s"/>
+    </circle>
+    
+    <!-- H 中间横条：在第5行 (y=50)，从 x=20 到 x=50 -->
+    <circle cx="20" cy="50" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="1;0.6;1" dur="1.5s" repeatCount="indefinite" begin="0.3s"/>
+    </circle>
+    <circle cx="30" cy="50" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="1;0.6;1" dur="1.5s" repeatCount="indefinite" begin="0.35s"/>
+    </circle>
+    <circle cx="40" cy="50" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="1;0.6;1" dur="1.5s" repeatCount="indefinite" begin="0.4s"/>
+    </circle>
+    <circle cx="50" cy="50" r="3" fill="#ffffff">
+      <animate attributeName="fill-opacity" values="1;0.6;1" dur="1.5s" repeatCount="indefinite" begin="0.45s"/>
+    </circle>
+  </g>
+</svg>

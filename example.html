@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>Nothing Phone Inspired Web</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ====== Google Fonts：Noto Sans SC + Doto ====== -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Doto&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- ====== 自定义精简版 Tailwind CSS  ====== -->
+  <style>
+    :root {
+      --tw-border-opacity: 1;
+      --tw-bg-opacity: 1;
+      --tw-text-opacity: 1;
+      --tw-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    /* ========== Tailwind 基础 Reset ========== */
+    *, ::before, ::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Noto Sans SC', 'Doto', sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      background-color: #0A0A0A;
+      color: #ededed;
+    }
+
+    /* ========== Tailwind 布局/尺寸类 ========== */
+    .container {
+      max-width: 1280px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .grid { display: grid; }
+    .flex { display: flex; }
+    .inline-flex { display: inline-flex; }
+    .flex-col { flex-direction: column; }
+    .flex-row { flex-direction: row; }
+    .flex-wrap { flex-wrap: wrap; }
+    .items-center { align-items: center; }
+    .justify-center { justify-content: center; }
+    .justify-between { justify-content: space-between; }
+    .justify-end { justify-content: flex-end; }
+
+    .w-full { width: 100%; }
+    .max-w-md { max-width: 28rem; }
+    .max-w-lg { max-width: 32rem; }
+
+    .h-full { height: 100%; }
+    .h-screen { height: 100vh; }
+
+    .p-2 { padding: 0.5rem; }
+    .p-4 { padding: 1rem; }
+    .p-6 { padding: 1.5rem; }
+    .p-8 { padding: 2rem; }
+    .px-4 { padding-left: 1rem; padding-right: 1rem; }
+    .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+    .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+    .my-4 { margin-top: 1rem; margin-bottom: 1rem; }
+    .my-6 { margin-top: 1.5rem; margin-bottom: 1.5rem; }
+    .mb-4 { margin-bottom: 1rem; }
+    .mb-6 { margin-bottom: 1.5rem; }
+    .mt-8 { margin-top: 2rem; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+
+    .rounded { border-radius: 0.25rem; }
+    .rounded-lg { border-radius: 0.5rem; }
+    .rounded-full { border-radius: 9999px; }
+
+    /* ========== Tailwind 字体/文本类 ========== */
+    .text-center { text-align: center; }
+    .text-left { text-align: left; }
+    .text-right { text-align: right; }
+    .text-sm { font-size: 0.875rem; }
+    .text-base { font-size: 1rem; }
+    .text-lg { font-size: 1.125rem; }
+    .text-xl { font-size: 1.25rem; }
+    .text-2xl { font-size: 1.5rem; }
+    .text-3xl { font-size: 1.875rem; }
+    .font-bold { font-weight: 700; }
+    .font-medium { font-weight: 500; }
+    .tracking-wider { letter-spacing: 0.05em; }
+
+    /* ========== Tailwind 背景/颜色类 ========== */
+    .bg-black { background-color: #000; }
+    .bg-white\\/5 { background-color: rgba(255, 255, 255, 0.05); }
+    .bg-white\\/10 { background-color: rgba(255, 255, 255, 0.1); }
+    .bg-gray-800 { background-color: #2d2d2d; }
+
+    .text-white { color: #ffffff; }
+    .text-gray-300 { color: #d1d5db; }
+
+    .hover\\:bg-white\\/10:hover { background-color: rgba(255, 255, 255, 0.1); }
+
+    .opacity-70 { opacity: 0.7; }
+    .opacity-80 { opacity: 0.8; }
+    .opacity-90 { opacity: 0.9; }
+
+    /* ========== Tailwind 边框/阴影类 ========== */
+    .border { border-width: 1px; }
+    .border-white\\/10 { border-color: rgba(255, 255, 255, 0.1); }
+    .shadow-xl { box-shadow: var(--tw-shadow); }
+
+    /* ========== Tailwind 动画/过渡类 ========== */
+    .transition { transition: all 0.3s ease; }
+    .animate-spin {
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .hover\\:shadow-xl:hover { box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); }
+
+    .cursor-pointer { cursor: pointer; }
+    .hidden { display: none; }
+
+    /* ========== Nothing 风格自定义 ========== */
+    /* 半透明容器，模拟 Nothing Phone 透明质感 */
+    .nothing-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px dashed rgba(255, 255, 255, 0.2); /* 使用点阵/虚线边框 */
+      box-shadow: 0 0 60px rgba(255, 255, 255, 0.04);
+    }
+
+    /* Glyph / LED 点阵动画 (小圆点呼吸) */
+    @keyframes glyphGlowing {
+      0%, 100% {
+        opacity: 0.2;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.3);
+      }
+    }
+    .glyph-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 9999px;
+      background-color: #fff;
+      opacity: 0.2;
+      animation: glyphGlowing 1.5s infinite ease-in-out;
+    }
+    .glyph-dot:nth-child(2) { animation-delay: 0.3s; }
+    .glyph-dot:nth-child(3) { animation-delay: 0.6s; }
+    .glyph-dot:nth-child(4) { animation-delay: 0.9s; }
+
+    /* LED 闪烁标题 (可模拟点阵文字) */
+    @keyframes ledFlicker {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.3;
+      }
+    }
+    .led-title {
+      font-weight: 700;
+      letter-spacing: 3px;
+      animation: ledFlicker 2.5s infinite;
+    }
+
+    /* Tooltip */
+    .tooltip-container {
+      position: relative;
+      display: inline-block;
+    }
+    .tooltip-text {
+      visibility: hidden;
+      width: max-content;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      text-align: center;
+      padding: 6px 8px;
+      border-radius: 4px;
+      position: absolute;
+      z-index: 9999;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 130%;
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 0.875rem;
+      white-space: nowrap;
+    }
+    .tooltip-container:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* Modal 遮罩 */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    /* Tabs */
+    .tab-btn {
+      border-bottom: 2px solid transparent;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+    .tab-btn.active {
+      border-bottom: 2px solid #fff;
+    }
+
+    /* Accordion */
+    .accordion-header {
+      cursor: pointer;
+    }
+
+    /* Switch Toggle */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 48px;
+      height: 24px;
+    }
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(255,255,255,0.2);
+      border: 1px dashed rgba(255,255,255,0.2);
+      transition: .4s;
+      border-radius: 24px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 2px;
+      bottom: 2px;
+      background-color: #fff;
+      border-radius: 50%;
+      transition: .4s;
+    }
+    input:checked + .slider {
+      background-color: rgba(255,255,255,0.4);
+    }
+    input:checked + .slider:before {
+      transform: translateX(24px);
+    }
+
+    /* 进度条 */
+    .progress-bar {
+      height: 8px;
+      background-color: rgba(255,255,255,0.1);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .progress-bar-inner {
+      height: 100%;
+      background-color: #fff;
+      transition: width 0.4s ease;
+    }
+
+    /* 表格 */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px dashed rgba(255,255,255,0.2);
+      padding: 0.5rem 1rem;
+      text-align: left;
+    }
+    th {
+      background-color: rgba(255,255,255,0.1);
+    }
+
+    /* 时间轴 (Timeline) */
+    .timeline {
+      position: relative;
+      margin: 2rem 0;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background-color: rgba(255,255,255,0.2);
+    }
+    .timeline-item {
+      position: relative;
+      margin-left: 60px;
+      margin-bottom: 1.5rem;
+    }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -8px;
+      top: 5px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #fff;
+    }
+    .timeline-date {
+      font-size: 0.875rem;
+      opacity: 0.6;
+      margin-bottom: 4px;
+    }
+    .timeline-content {
+      background: rgba(255,255,255, 0.05);
+      border: 1px dashed rgba(255,255,255,0.2);
+      backdrop-filter: blur(6px);
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+  <!-- ============ React, ReactDOM & Babel ============ -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+
+  <div id="root" class="w-full"></div>
+
+  <!-- ============ React 代码 ============ -->
+  <script type="text/babel">
+    /*************************************
+     * 模态框组件: Modal
+     *************************************/
+    function Modal({ title, content, onClose }) {
+      return (
+        <div className="modal-overlay" onClick={onClose}>
+          <div
+            className="nothing-card p-6 rounded-lg text-center w-11/12 max-w-md"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2 className="text-xl font-bold mb-4">{title}</h2>
+            <p className="mb-6">{content}</p>
+            <button
+              className="border border-white/10 px-4 py-2 rounded transition hover:bg-white/10"
+              onClick={onClose}
+            >
+              关闭
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    /*************************************
+     * 手风琴组件: Accordion
+     *************************************/
+    function AccordionItem({ title, content, isOpen, onClick }) {
+      return (
+        <div className="mb-2 border-b border-white/10">
+          <div
+            className="accordion-header flex justify-between items-center py-2 cursor-pointer"
+            onClick={onClick}
+          >
+            <span className="font-medium">{title}</span>
+            <span>{isOpen ? "-" : "+"}</span>
+          </div>
+          {isOpen && (
+            <div className="py-2 text-gray-300 opacity-80">{content}</div>
+          )}
+        </div>
+      );
+    }
+
+    function Accordion({ items }) {
+      const [openIndex, setOpenIndex] = React.useState(null);
+      const handleClick = (index) => {
+        setOpenIndex(openIndex === index ? null : index);
+      };
+      return (
+        <div>
+          {items.map((item, idx) => (
+            <AccordionItem
+              key={idx}
+              title={item.title}
+              content={item.content}
+              isOpen={openIndex === idx}
+              onClick={() => handleClick(idx)}
+            />
+          ))}
+        </div>
+      );
+    }
+
+    /*************************************
+     * Loading Spinner
+     *************************************/
+    function Spinner() {
+      return (
+        <div className="flex justify-center items-center p-4">
+          <div className="w-8 h-8 border-4 border-white/10 border-t-white rounded-full animate-spin" />
+        </div>
+      );
+    }
+
+    /*************************************
+     * Tabs
+     *************************************/
+    function Tabs({ tabs }) {
+      const [activeIndex, setActiveIndex] = React.useState(0);
+      return (
+        <div>
+          <div className="flex mb-4 border-b border-white/10">
+            {tabs.map((tab, idx) => (
+              <button
+                key={idx}
+                className={
+                  "tab-btn text-white " + (activeIndex === idx ? "active" : "")
+                }
+                onClick={() => setActiveIndex(idx)}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+          <div className="text-gray-300 opacity-80">{tabs[activeIndex].content}</div>
+        </div>
+      );
+    }
+
+    /*************************************
+     * Tooltip 演示组件
+     *************************************/
+    function TooltipExample() {
+      return (
+        <div className="text-center my-4">
+          <div className="tooltip-container">
+            <button className="border border-white/10 px-3 py-1 rounded hover:bg-white/10 transition">
+              Hover 我
+            </button>
+            <div className="tooltip-text">这是一个提示 Tooltip</div>
+          </div>
+        </div>
+      );
+    }
+
+    /*************************************
+     * Card 组件
+     *************************************/
+    function Card({ title, subtitle, children }) {
+      return (
+        <div className="nothing-card rounded-lg p-4 border mb-4 transition hover:shadow-xl">
+          <h3 className="text-xl font-bold mb-2">{title}</h3>
+          <p className="opacity-80 mb-2">{subtitle}</p>
+          <div>{children}</div>
+        </div>
+      );
+    }
+
+    /*************************************
+     * 表单组件
+     *************************************/
+    function SampleForm() {
+      const [formData, setFormData] = React.useState({ username: "", email: "" });
+      const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+      };
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        alert("提交的表单数据：\\n" + JSON.stringify(formData, null, 2));
+      };
+
+      return (
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 text-left">
+          <div>
+            <label className="block mb-1">用户名：</label>
+            <input
+              className="w-full p-2 rounded bg-black border border-white/10"
+              type="text"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              placeholder="输入用户名"
+            />
+          </div>
+          <div>
+            <label className="block mb-1">邮箱：</label>
+            <input
+              className="w-full p-2 rounded bg-black border border-white/10"
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="输入邮箱"
+            />
+          </div>
+          <button
+            type="submit"
+            className="border border-white/10 px-4 py-2 rounded hover:bg-white/10 transition"
+          >
+            提交
+          </button>
+        </form>
+      );
+    }
+
+    /*************************************
+     * Navbar 组件
+     *************************************/
+    function Navbar({ onShowModal }) {
+      return (
+        <nav className="bg-black w-full py-4 border-b border-white/10">
+          <div className="container flex justify-between items-center">
+            <div className="flex items-center gap-2">
+              {/* Glyph Logo 模拟 (LED 小圆点动画) */}
+              <div className="inline-flex gap-1">
+                <div className="glyph-dot"></div>
+                <div className="glyph-dot"></div>
+                <div className="glyph-dot"></div>
+                <div className="glyph-dot"></div>
+              </div>
+              <span className="ml-2 font-bold tracking-wider text-lg">NOTHING</span>
+            </div>
+            <div className="flex items-center gap-4">
+              <button
+                className="border border-white/10 px-3 py-1 rounded hover:bg-white/10 transition"
+              >
+                按钮1
+              </button>
+              <button
+                className="border border-white/10 px-3 py-1 rounded hover:bg-white/10 transition"
+                onClick={onShowModal}
+              >
+                弹窗
+              </button>
+            </div>
+          </div>
+        </nav>
+      );
+    }
+
+    /*************************************
+     * Footer 组件
+     *************************************/
+    function Footer() {
+      return (
+        <footer className="mt-8 py-4 text-center border-t border-white/10 opacity-70">
+          <p>© 2025 NOTHING Inc. All rights reserved.</p>
+        </footer>
+      );
+    }
+
+    /*************************************
+     * Switch Toggle
+     *************************************/
+    function SwitchToggle() {
+      const [checked, setChecked] = React.useState(false);
+      return (
+        <label className="switch">
+          <input
+            type="checkbox"
+            checked={checked}
+            onChange={() => setChecked(!checked)}
+          />
+          <span className="slider"></span>
+        </label>
+      );
+    }
+
+    /*************************************
+     * Progress Bar
+     *************************************/
+    function ProgressBar({ percent }) {
+      return (
+        <div className="progress-bar">
+          <div
+            className="progress-bar-inner"
+            style={{ width: percent + "%" }}
+          />
+        </div>
+      );
+    }
+
+    /*************************************
+     * Table 示例
+     *************************************/
+    function SampleTable() {
+      return (
+        <div className="overflow-auto">
+          <table>
+            <thead>
+              <tr>
+                <th>名称</th>
+                <th>类别</th>
+                <th>状态</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Nothing Phone 1</td>
+                <td>手机</td>
+                <td>已发布</td>
+              </tr>
+              <tr>
+                <td>Nothing Ear 1</td>
+                <td>耳机</td>
+                <td>已发布</td>
+              </tr>
+              <tr>
+                <td>Nothing Ear 2</td>
+                <td>耳机</td>
+                <td>即将发布</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      );
+    }
+
+    /*************************************
+     * Timeline (时间轴)
+     *************************************/
+    function Timeline() {
+      const events = [
+        {
+          date: "2023-01-01",
+          content: "成立 Nothing 团队，启动项目策划。"
+        },
+        {
+          date: "2023-06-12",
+          content: "推出 Nothing Phone 1，首度亮相极简透明美学。"
+        },
+        {
+          date: "2024-03-20",
+          content: "发布新款耳机，主打高性价比和 glyph 灯效。"
+        },
+      ];
+      return (
+        <div className="timeline">
+          {events.map((e, index) => (
+            <div key={index} className="timeline-item">
+              <div className="timeline-date">{e.date}</div>
+              <div className="timeline-content">{e.content}</div>
+            </div>
+          ))}
+        </div>
+      );
+    }
+
+    /*************************************
+     * 主 App 组件
+     *************************************/
+    function App() {
+      const [showModal, setShowModal] = React.useState(false);
+
+      // Accordion 演示
+      const accordionItems = [
+        { title: "问题1：这是手风琴吗？", content: "是的，这是一种可折叠展开的手风琴组件。" },
+        { title: "问题2：Nothing Phone 风格特征？", content: "简洁、黑白、半透明、点阵灯效、Glyph 动画…" },
+        { title: "问题3：如何添加LED点阵动画？", content: "可以使用自定义CSS keyframes或Tailwind的 animate-* 类名。" },
+      ];
+
+      // Tabs 演示
+      const tabsData = [
+        { label: "Tab A", content: "这是 Tab A 的内容" },
+        { label: "Tab B", content: "这是 Tab B 的内容" },
+        { label: "Tab C", content: "这是 Tab C 的内容" },
+      ];
+
+      // ProgressBar 演示
+      const [progress, setProgress] = React.useState(40);
+
+      return (
+        <div className="flex flex-col min-h-screen">
+          <Navbar onShowModal={() => setShowModal(true)} />
+
+          {/* 主内容区域 */}
+          <main className="container mt-4 flex-grow">
+            <section className="text-center mb-8">
+              <h1 className="text-3xl led-title mb-2">WELCOME TO NOTHING</h1>
+              <p className="opacity-80 text-base">
+                灵感来自 Nothing Phone 的设计语言：极简、未来感、透明感和黑白灰主色调。
+              </p>
+            </section>
+
+            {/* LED Glyph 小动画演示 */}
+            <div className="flex justify-center gap-2 mb-6">
+              <div className="glyph-dot"></div>
+              <div className="glyph-dot"></div>
+              <div className="glyph-dot"></div>
+              <div className="glyph-dot"></div>
+            </div>
+
+            {/* Grid 示例（对称布局） */}
+            <div className="grid gap-4 md:grid-cols-2">
+              <Card title="切换开关" subtitle="Switch Toggle">
+                <div className="flex justify-center mb-2">
+                  <SwitchToggle />
+                </div>
+                <p className="text-sm opacity-80">
+                  这是一个简易的开关，用点阵/虚线边框营造 Nothing 风格。
+                </p>
+              </Card>
+
+              <Card title="进度条" subtitle="Progress Bar">
+                <ProgressBar percent={progress} />
+                <div className="flex items-center justify-center gap-2 mt-2">
+                  <button
+                    className="border border-white/10 px-2 py-1 rounded hover:bg-white/10 transition"
+                    onClick={() => setProgress((p) => Math.max(p - 10, 0))}
+                  >
+                    减少
+                  </button>
+                  <button
+                    className="border border-white/10 px-2 py-1 rounded hover:bg-white/10 transition"
+                    onClick={() => setProgress((p) => Math.min(p + 10, 100))}
+                  >
+                    增加
+                  </button>
+                </div>
+              </Card>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-2 mt-4">
+              <Card
+                title="Tooltip & Loading"
+                subtitle="Tooltip & Spinner 示例"
+              >
+                <TooltipExample />
+                <Spinner />
+              </Card>
+
+              <Card
+                title="Tabs 示例"
+                subtitle="切换不同标签来查看内容"
+              >
+                <Tabs tabs={tabsData} />
+              </Card>
+            </div>
+
+            <div className="mt-4">
+              <Card
+                title="Accordion 示例"
+                subtitle="点击问题查看答案"
+              >
+                <Accordion items={accordionItems} />
+              </Card>
+            </div>
+
+            <div className="mt-4">
+              <Card
+                title="表单示例"
+                subtitle="模拟提交并弹出数据"
+              >
+                <SampleForm />
+              </Card>
+            </div>
+
+            <div className="mt-4">
+              <Card title="表格示例" subtitle="展示一个简单的表格">
+                <SampleTable />
+              </Card>
+            </div>
+
+            <div className="mt-4">
+              <Card title="时间轴 Timeline" subtitle="事件顺序展示">
+                <Timeline />
+              </Card>
+            </div>
+
+          </main>
+
+          <Footer />
+
+          {showModal && (
+            <Modal
+              title="Nothing 风格弹窗"
+              content="这是一个 Nothing Phone 风格的弹窗，半透明点阵边框，极简的黑白设计。"
+              onClose={() => setShowModal(false)}
+            />
+          )}
+        </div>
+      );
+    }
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>

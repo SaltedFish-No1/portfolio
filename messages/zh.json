@@ -1,0 +1,14 @@
+{
+  "About": {
+    "name": "陈昊天",
+    "self-introduction": "我是一名前端工程师，热衷于打造既美观又高效的 Web 应用体验，专注于 React、TypeScript 及现代 UI 设计。"
+  },
+  "Skills": {
+    "title": "我的技能",
+    "proficiencyExpert": "精通",
+    "proficiencyAdvanced": "熟练",
+    "proficiencyIntermediate": "熟悉",
+    "proficiencyBasic": "了解"
+  }
+
+}

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" class="text-white bg-black">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haotian • Portfolio</title>
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CDN (utility only) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS – scroll animations -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <!-- Iconify – for quick icons -->
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <style>
+    /* ====== DESIGN TOKENS ====== */
+    :root{
+      --glass-bg:rgba(255,255,255,.04);
+      --glass-hover:rgba(255,255,255,.10);
+      --glass-shadow:0 10px 40px rgba(0,0,0,.8);
+      --glass-border:rgba(255,255,255,.2);
+      --accent:#a4fffa;
+      --progress-bg:rgba(255,255,255,.2);
+      --progress-bar:#fff;
+    }
+    /* ====== GLOBAL ====== */
+    body{font-family:'Inter',sans-serif;cursor:none;overflow-x:hidden;scroll-behavior:smooth}
+    ::selection{background:var(--accent);color:#000}
+    
+    /* ====== GLASS CARD ====== */
+    .glass{background:var(--glass-bg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--glass-border);box-shadow:var(--glass-shadow);transition:.4s}
+    .glass:hover{background:var(--glass-hover);box-shadow:0 0 24px rgba(255,255,255,.9)}
+    
+    /* ====== SHIMMER TEXT ====== */
+    .shimmer{background:linear-gradient(90deg,rgba(255,255,255,.08)25%,rgba(255,255,255,.28)50%,rgba(255,255,255,.08)75%);background-size:200% 100%;animation:shimmer 3.5s infinite;color:transparent;-webkit-background-clip:text;background-clip:text}
+    @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+    
+    /* ===== CUSTOM CURSOR ===== */
+    #cursor,#cursor-follower{position:fixed;top:0;left:0;pointer-events:none;border-radius:50%;mix-blend-mode:difference;z-index:1000;transition:transform .15s ease}
+    #cursor{width:8px;height:8px;background:#fff}
+    #cursor-follower{width:32px;height:32px;border:2px solid #fff;transform:translate(-50%,-50%)}
+    
+    /* ==== PROGRESS BAR ==== */
+    #progressWrap{position:fixed;top:0;left:0;width:100%;height:4px;background:var(--progress-bg);z-index:999}
+    #progressBar{width:0;height:100%;background:var(--progress-bar)}
+
+    /* === NAV HOVER UNDERLINE === */
+    nav a{position:relative;display:inline-block}
+    nav a::after{content:"";position:absolute;left:50%;bottom:-2px;width:0;height:2px;background:#fff;transition:.3s}
+    nav a:hover::after{left:0;width:100%}
+
+    /* === TIMELINE === */
+    .timeline{position:relative;padding-left:2rem}
+    .timeline::before{content:"";position:absolute;left:1rem;top:0;width:2px;height:100%;background:var(--glass-border)}
+    .timeline-item{position:relative;margin-bottom:2rem}
+    .timeline-item::before{content:"";position:absolute;left:-0.55rem;top:.3rem;width:1rem;height:1rem;background:#fff;border-radius:50%}
+
+    /* === PRELOADER === */
+    #preloader{position:fixed;inset:0;background:#000;display:flex;align-items:center;justify-content:center;z-index:2000;transition:opacity .6s ease;}
+    #preloader.hidden{opacity:0;pointer-events:none}
+    .loader{
+      width:48px;height:48px;border-radius:50%;border:4px solid #333;border-top-color:#fff;animation:spin 1s linear infinite
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+  </style>
+</head>
+<body class="text-gray-100">
+  <!-- PRELOADER -->
+  <div id="preloader"><div class="loader"></div></div>
+
+  <!-- PROGRESS -->
+  <div id="progressWrap"><div id="progressBar"></div></div>
+  
+  <!-- CURSOR -->
+  <div id="cursor"></div><div id="cursor-follower"></div>
+
+  <!-- NAV -->
+  <nav class="glass fixed w-full top-0 z-50" data-aos="fade-down">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#hero" class="text-2xl font-extrabold shimmer">HC</a>
+      <div class="hidden md:flex gap-8">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#services">Services</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button id="menuBtn" class="md:hidden p-2" aria-label="menu"><span class="iconify" data-icon="mdi:menu"></span></button>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden glass p-6 space-y-4 text-center">
+      <a href="#about" class="block">About</a>
+      <a href="#skills" class="block">Skills</a>
+      <a href="#services" class="block">Services</a>
+      <a href="#timeline" class="block">Timeline</a>
+      <a href="#projects" class="block">Projects</a>
+      <a href="#contact" class="block">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" class="h-screen flex items-center justify-center px-6 pt-24" data-aos="zoom-out">
+    <div class="glass p-12 rounded-3xl text-center max-w-xl">
+      <h1 class="shimmer text-5xl font-extrabold mb-4">Hey, I'm Haotian</h1>
+      <p class="text-gray-300 mb-6">Front‑End Engineer crafting transparent, layered digital experiences.</p>
+      <a href="#projects" class="inline-block border border-gray-300 px-6 py-3 rounded-full hover:bg-white hover:text-black transition">See my work</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-20" data-aos="fade-up">
+    <div class="container mx-auto px-6 max-w-3xl">
+      <h2 class="text-4xl font-bold text-center mb-8">About</h2>
+      <div class="glass p-10 rounded-2xl leading-relaxed text-gray-200">
+        I'm a passionate engineer who believes minimalism and motion can tell powerful stories. My goal: merge aesthetic clarity with silky‑smooth interactions so users feel technology disappear.
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="py-20 bg-black" data-aos="fade-up">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12">Core Skills</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Reusable skill bar component -->
+        <template id="skillTemplate">
+          <div class="glass p-6 rounded-2xl hover:-translate-y-2 transition">
+            <h3 class="skill-title text-2xl font-semibold mb-4"></h3>
+            <div class="bg-gray-800 h-4 rounded-full overflow-hidden">
+              <div class="skill-bar h-4 bg-white origin-left transform scale-x-0"></div>
+            </div>
+          </div>
+        </template>
+        <div id="skillGrid" class="contents"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-20" data-aos="fade-up">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12">What I Offer</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="glass p-8 rounded-2xl text-center hover:rotate-1 transition" data-aos="flip-left">
+          <span class="iconify text-4xl" data-icon="mdi:responsive"></span>
+          <h3 class="mt-4 font-semibold text-xl">Responsive UI</h3>
+          <p class="text-gray-300 mt-2">Pixel‑perfect layouts across every device.</p>
+        </div>
+        <div class="glass p-8 rounded-2xl text-center hover:rotate-1 transition" data-aos="flip-left" data-aos-delay="100">
+          <span class="iconify text-4xl" data-icon="mdi:animation-outline"></span>
+          <h3 class="mt-4 font-semibold text-xl">Micro Animations</h3>
+          <p class="text-gray-300 mt-2">Smooth, meaningful motion with minimal overhead.</p>
+        </div>
+        <div class="glass p-8 rounded-2xl text-center hover:rotate-1 transition" data-aos="flip-left" data-aos-delay="200">
+          <span class="iconify text-4xl" data-icon="mdi:rocket-launch-outline"></span>
+          <h3 class="mt-4 font-semibold text-xl">Performance</h3>
+          <p class="text-gray-300 mt-2">Fast load, optimized assets, top Lighthouse scores.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="timeline" class="py-20 bg-black" data-aos="fade-up">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12">Journey</h2>
+      <div class="timeline max-w-2xl mx-auto">
+        <div class="timeline-item glass p-6 rounded-2xl hover:shadow-lg transition" data-aos="fade-right">
+          <h3 class="font-semibold">2025 → Present</h3>
+          <p class="text-gray-300">Front‑End Dev – XYZ Corp.</p>
+        </div>
+        <div class="timeline-item glass p-6 rounded-2xl hover:shadow-lg transition" data-aos="fade-left">
+          <h3 class="font-semibold">2023 → 2025</h3>
+          <p class="text-gray-300">M.S. ECE – Georgia Tech.</p>
+        </div>
+        <div class="timeline-item glass p-6 rounded-2xl hover:shadow-lg transition" data-aos="fade-right">
+          <h3 class="font-semibold">2019 → 2023</h3>
+          <p class="text-gray-300">B.S. CS – SWPU.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-20" data-aos="fade-up">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12">Selected Work</h2>
+      <div class="flex justify-center gap-4 mb-8">
+        <button class="filter-btn glass px-4 py-2 rounded-full" data-filter="all">All</button>
+        <button class="filter-btn glass px-4 py-2 rounded-full" data-filter="web">Web</button>
+        <button class="filter-btn glass px-4 py-2 rounded-full" data-filter="game">Game</button>
+      </div>
+      <div id="projectGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-20 bg-black" data-aos="fade-up">
+    <div class="container mx-auto px-6 max-w-lg">
+      <h2 class="text-4xl font-bold text-center mb-8">Let's Talk</h2>
+      <form class="glass p-8 rounded-2xl space-y-6">
+        <label class="block text-sm"><span>Name</span>
+          <input required class="mt-2 w-full p-3 bg-transparent border border-gray-600 rounded-lg focus:outline-none"/>
+        </label>
+        <label class="block text-sm"><span>Email</span>
+          <input type="email" required class="mt-2 w-full p-3 bg-transparent border border-gray-600 rounded-lg focus:outline-none"/>
+        </label>
+        <label class="block text-sm"><span>Message</span>
+          <textarea rows="4" required class="mt-2 w-full p-3 bg-transparent border border-gray-600 rounded-lg focus:outline-none"></textarea>
+        </label>
+        <button class="w-full py-3 border border-gray-300 rounded-lg hover:bg-white hover:text-black transition">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="glass py-6 text-center text-gray-500">
+    © <span id="year"></span> Haotian Chen – Built with passion & caffeine.
+  </footer>
+
+  <!-- MODALS / TEMPLATES -->
+  <template id="projectCard">
+    <div class="project-card glass p-6 rounded-2xl hover:scale-105 transition cursor-pointer" data-category="">
+      <h3 class="project-title text-2xl font-semibold mb-2"></h3>
+      <p class="project-desc text-gray-300 mb-4"></p>
+      <span class="text-sm underline">Details</span>
+    </div>
+  </template>
+  <div id="modal" class="fixed inset-0 hidden items-center justify-center bg-black/60 backdrop-blur" role="dialog">
+    <div class="glass max-w-lg p-8 rounded-2xl relative">
+      <button id="modalClose" class="absolute top-3 right-3 text-lg">✕</button>
+      <h3 class="text-2xl font-bold mb-4"></h3>
+      <p class="text-gray-300"></p>
+    </div>
+  </div>
+
+  <!-- LIBRARIES -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  
+  <!-- MAIN SCRIPTS -->
+  <script>
+    // UTILS
+    const qs=(q,o=document)=>o.querySelector(q),qsa=(q,o=document)=>o.querySelectorAll(q)
+
+    // PRELOADER
+    window.addEventListener('load',()=>{qs('#preloader').classList.add('hidden')})
+
+    // AOS INIT
+    AOS.init({duration:800,once:true})
+
+    // MOBILE MENU
+    qs('#menuBtn').onclick=()=>qs('#mobileMenu').classList.toggle('hidden')
+
+    // PROGRESS BAR
+    window.addEventListener('scroll',()=>{
+      const p=window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;qs('#progressBar').style.width=p+'%'
+    })
+
+    // CURSOR
+    const c=qs('#cursor'),f=qs('#cursor-follower')
+    document.addEventListener('mousemove',e=>{c.style.transform=`translate(${e.clientX}px,${e.clientY}px)`;f.style.transform=`translate(${e.clientX}px,${e.clientY}px)`})
+
+    // DYNAMIC YEAR
+    qs('#year').textContent=new Date().getFullYear()
+
+    // SKILLS DATA
+    const skills=[
+      {title:'HTML & CSS',value:0.95},
+      {title:'JavaScript',value:0.9},
+      {title:'React / Next.js',value:0.85},
+      {title:'Tailwind CSS',value:0.83},
+    ]
+    const skillGrid=qs('#skillGrid'),skillTpl=qs('#skillTemplate').content
+    skills.forEach(({title,value})=>{
+      const node=skillTpl.cloneNode(true)
+      node.querySelector('.skill-title').textContent=title
+      node.querySelector('.skill-bar').style.transform=`scaleX(${value})`
+      skillGrid.appendChild(node)
+    })
+
+    // PROJECT DATA
+    const projects=[
+      {title:'AI Resume Generator',desc:'Next.js web app for realtime resume building.',cat:'web'},
+      {title:'Multiplayer Deduction Game',desc:'Socket.io + React realtime game.',cat:'game'},
+      {title:'Portfolio Redesign',desc:'Glass‑morphism personal brand site.',cat:'web'}
+    ]
+    const projGrid=qs('#projectGrid'),projTpl=qs('#projectCard').content
+    projects.forEach(p=>{
+      const n=projTpl.cloneNode(true)
+      const card=n.querySelector('.project-card')
+      card.dataset.category=p.cat
+      n.querySelector('.project-title').textContent=p.title
+      n.querySelector('.project-desc').textContent=p.desc
+      card.onclick=()=>openModal(p)
+      projGrid.appendChild(n)
+    })
+
+    // FILTER
+    qsa('.filter-btn').forEach(btn=>btn.onclick=()=>{
+      const filter=btn.dataset.filter;qsa('#projectGrid>.project-card').forEach(card=>{
+        card.parentElement.style.display=filter==='all'||card.dataset.category===filter?'':'none'
+      })
+    })
+
+    // MODAL
+    const modal=qs('#modal'),modalTitle=qs('#modal h3'),modalDesc=qs('#modal p')
+    function openModal({title,desc}){modalTitle.textContent=title;modalDesc.textContent=desc;modal.classList.remove('hidden');}
+    qs('#modalClose').onclick=()=>modal.classList.add('hidden')
+    modal.onclick=e=>e.target===modal&&modal.classList.add('hidden')
+  </script>
+</body>
+</html>

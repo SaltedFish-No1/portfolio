@@ -1,0 +1,54 @@
+@import url("https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap");
+
+/* ===== 设计令牌 ===== */
+:root{
+  --glass-bg:rgba(255,255,255,.04);
+  --glass-hover:rgba(255,255,255,.10);
+  --glass-border:rgba(255,255,255,.25);
+  --glass-shadow:0 10px 40px rgba(0,0,0,.7);
+  --accent:#a4fffa;
+}
+
+html{color-scheme:dark}
+body{
+  @apply bg-black text-gray-100 font-['Inter',sans-serif] leading-relaxed scroll-smooth;
+}
+::selection{background:var(--accent);color:#000}
+
+/* ===== 玻璃卡 ===== */
+.glass{
+  background:var(--glass-bg);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border:1px solid var(--glass-border);
+  box-shadow:var(--glass-shadow);
+  transition:background .35s,box-shadow .35s,transform .35s;
+}
+.glass:hover{background:var(--glass-hover);box-shadow:0 0 24px rgba(255,255,255,.85)}
+
+/* ===== page fade ===== */
+.page-enter{opacity:0;transform:translateY(8px)}
+.page-enter-active{opacity:1;transform:none;transition:opacity .4s,transform .4s}
+
+/* ===== shimmer 文本 ===== */
+.shimmer{
+  background:linear-gradient(90deg,rgba(255,255,255,.08)25%,rgba(255,255,255,.35)50%,rgba(255,255,255,.08)75%);
+  background-size:200% 100%;
+  -webkit-background-clip:text;color:transparent;
+  animation:shimmer 3.5s infinite;
+}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+
+/* ===== 时间轴 ===== */
+.timeline{position:relative;padding-left:2.3rem}
+.timeline::before{content:"";position:absolute;left:1.15rem;top:0;width:2px;height:100%;background:var(--glass-border)}
+.timeline-item::before{
+  content:"";position:absolute;left:-0.55rem;top:.35rem;width:1rem;height:1rem;background:#fff;border-radius:50%;
+}
+
+/* ===== 侧边锚点 ===== */
+#sideNav{ @apply hidden lg:block fixed right-6 top-1/2 -translate-y-1/2 space-y-4}
+.anchor-dot{ @apply w-3 h-3 rounded-full bg-gray-600 transition-all}
+.anchor-dot.active{ @apply scale-125 bg-white opacity-100}
+.anchor-dot{opacity:.4}

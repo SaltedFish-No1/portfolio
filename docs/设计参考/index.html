@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" class="text-white bg-black">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Haotian • Portfolio</title>
+  <!-- Tailwind utilities -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="global.css">
+  <!-- 外部库 -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <!-- React CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body data-page="home">
+
+  <!-- 顶部导航 -->
+  <nav class="glass fixed w-full top-0 z-50 backdrop-blur-sm" data-aos="fade-down">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#hero" class="text-2xl font-extrabold shimmer">HC</a>
+      <div class="hidden md:flex gap-8">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#services">Services</a>
+        <a href="#timeline">Timeline</a>
+        <a href="projects.html">Projects</a>
+        <a href="blog.html">Blog</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button id="menuBtn" aria-label="menu" aria-expanded="false" class="md:hidden p-2">
+        <span class="iconify" data-icon="mdi:menu"></span>
+      </button>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden glass p-6 space-y-4 text-center">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#services">Services</a>
+      <a href="#timeline">Timeline</a>
+      <a href="projects.html">Projects</a>
+      <a href="blog.html">Blog</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- 滚动进度条 -->
+  <div class="fixed top-0 left-0 w-full h-1 bg-white/20 z-40">
+    <div id="progressBar" class="h-full bg-white w-0"></div>
+  </div>
+
+  <!-- 侧边锚点 -->
+  <nav id="sideNav">
+    <a id="dot-hero"      data-target="hero"      href="#hero"      class="anchor-dot"></a>
+    <a id="dot-about"     data-target="about"     href="#about"     class="anchor-dot"></a>
+    <a id="dot-skills"    data-target="skills"    href="#skills"    class="anchor-dot"></a>
+    <a id="dot-services"  data-target="services"  href="#services"  class="anchor-dot"></a>
+    <a id="dot-timeline"  data-target="timeline"  href="#timeline"  class="anchor-dot"></a>
+    <a id="dot-contact"   data-target="contact"   href="#contact"   class="anchor-dot"></a>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero" class="h-screen flex items-center justify-center px-6 pt-24" data-aos="zoom-out">
+    <div class="glass p-12 rounded-3xl text-center max-w-xl">
+      <h1 class="shimmer text-5xl font-extrabold mb-4">Hey, I'm Haotian</h1>
+      <p class="text-gray-300 mb-6">Front‑End Engineer crafting transparent, layered digital experiences.</p>
+      <a href="#projects" class="inline-block border border-gray-300 px-6 py-3 rounded-full hover:bg-white hover:text-black active:scale-95 transition">See my work</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-20" data-aos="fade-up">
+    <div class="container mx-auto px-6 max-w-3xl">
+      <h2 class="text-4xl font-bold text-center mb-8">About</h2>
+      <div class="glass p-10 rounded-2xl text-gray-200">
+        I'm a passionate engineer who believes minimalism and motion can tell powerful stories. My goal: merge aesthetic clarity with silky‑smooth interactions so users feel technology disappear.
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills (React 渲染) -->
+  <section id="skills" class="py-20 bg-black" data-aos="fade-up">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12">Core Skills</h2>
+      <div id="skillsRoot" class="grid md:grid-cols-2 gap-8"></div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-20" data-aos="fade-up">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12">What I Offer</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="glass p-8 rounded-2xl text-center hover:rotate-1 transition" data-aos="flip-left">
+          <span class="iconify text-4xl" data-icon="mdi:responsive"></span>
+          <h3 class="mt-4 font-semibold text-xl">Responsive UI</h3>
+          <p class="text-gray-300 mt-2">Pixel‑perfect layouts across every device.</p>
+        </div>
+        <div class="glass p-8 rounded-2xl text-center hover:rotate-1 transition" data-aos="flip-left" data-aos-delay="100">
+          <span class="iconify text-4xl" data-icon="mdi:animation-outline"></span>
+          <h3 class="mt-4 font-semibold text-xl">Micro Animations</h3>
+          <p class="text-gray-300 mt-2">Smooth, meaningful motion with minimal overhead.</p>
+        </div>
+        <div class="glass p-8 rounded-2xl text-center hover:rotate-1 transition" data-aos="flip-left" data-aos-delay="200">
+          <span class="iconify text-4xl" data-icon="mdi:rocket-launch-outline"></span>
+          <h3 class="mt-4 font-semibold text-xl">Performance</h3>
+          <p class="text-gray-300 mt-2">Fast load, optimized assets, top Lighthouse scores.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section id="timeline" class="py-20 bg-black" data-aos="fade-up">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12">Journey</h2>
+      <div class="timeline max-w-2xl mx-auto">
+        <div class="timeline-item glass p-6 rounded-2xl hover:shadow-lg transition" data-aos="fade-right">
+          <h3 class="font-semibold">2025 → Present</h3>
+          <p class="text-gray-300">Front‑End Dev – XYZ Corp.</p>
+        </div>
+        <div class="timeline-item glass p-6 rounded-2xl hover:shadow-lg transition" data-aos="fade-left">
+          <h3 class="font-semibold">2023 → 2025</h3>
+          <p class="text-gray-300">M.S. ECE – Georgia Tech.</p>
+        </div>
+        <div class="timeline-item glass p-6 rounded-2xl hover:shadow-lg transition" data-aos="fade-right">
+          <h3 class="font-semibold">2019 → 2023</h3>
+          <p class="text-gray-300">B.S. CS – SWPU.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects (精选) -->
+  <section id="projects" class="py-20" data-aos="fade-up">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12">Selected Work</h2>
+      <div class="flex justify-center gap-4 mb-8">
+        <button class="filter-btn glass px-4 py-2 rounded-full ring-2 ring-white/80" data-filter="all">All</button>
+        <button class="filter-btn glass px-4 py-2 rounded-full" data-filter="web">Web</button>
+        <button class="filter-btn glass px-4 py-2 rounded-full" data-filter="game">Game</button>
+      </div>
+      <div id="projectsRoot" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+      <div class="text-center mt-10">
+        <a href="projects.html" class="underline">View Full Project Archive →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-20 bg-black" data-aos="fade-up">
+    <div class="container mx-auto px-6 max-w-lg">
+      <h2 class="text-4xl font-bold text-center mb-8">Let's Talk</h2>
+      <form class="glass p-8 rounded-2xl space-y-6">
+        <label class="block text-sm"><span>Name</span>
+          <input required class="mt-2 w-full p-3 bg-transparent border border-gray-600 rounded-lg focus:outline-none"/>
+        </label>
+        <label class="block text-sm"><span>Email</span>
+          <input type="email" required class="mt-2 w-full p-3 bg-transparent border border-gray-600 rounded-lg focus:outline-none"/>
+        </label>
+        <label class="block text-sm"><span>Message</span>
+          <textarea rows="4" required class="mt-2 w-full p-3 bg-transparent border border-gray-600 rounded-lg focus:outline-none"></textarea>
+        </label>
+        <button class="w-full py-3 border border-gray-300 rounded-lg hover:bg-white hover:text-black active:scale-95 transition">Send</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="modal" class="fixed inset-0 hidden items-center justify-center bg-black/60 backdrop-blur" role="dialog" aria-modal="true">
+    <div class="glass max-w-lg p-8 rounded-2xl relative">
+      <button id="modalClose" class="absolute top-3 right-3 text-lg" aria-label="close">✕</button>
+      <h3 id="modalTitle" class="text-2xl font-bold mb-4"></h3>
+      <p id="modalDesc" class="text-gray-300"></p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="glass py-6 text-center text-gray-500">
+    © <span id="year"></span> Haotian Chen – Built with passion & caffeine.
+  </footer>
+
+  <!-- React 渲染脚本 -->
+  <script type="text/babel">
+    const skills = [
+      {title:'HTML & CSS',value:0.95},
+      {title:'JavaScript',value:0.90},
+      {title:'React / Next.js',value:0.85},
+      {title:'Tailwind CSS',value:0.83},
+    ];
+    const projects = [
+      {title:'AI Resume Generator',desc:'Next.js web app for realtime resume building.',cat:'web'},
+      {title:'Multiplayer Deduction Game',desc:'Socket.io + React realtime game.',cat:'game'},
+      {title:'Portfolio Redesign',desc:'Glass‑morphism personal brand site.',cat:'web'}
+    ];
+    function SkillCard({title,value}) {
+      return (
+        <div className="glass p-6 rounded-2xl hover:-translate-y-2 transition">
+          <h3 className="text-2xl font-semibold mb-4">{title}</h3>
+          <div className="bg-gray-800 h-4 rounded-full overflow-hidden">
+            <div className="skill-bar h-4 bg-white origin-left transform scale-x-0" data-scale={value}></div>
+          </div>
+        </div>
+      );}
+    function ProjectCard({p}) {
+      return (
+        <div
+          className="project-card glass p-6 rounded-2xl hover:scale-105 transition cursor-pointer"
+          data-category={p.cat}
+          onClick={()=>window.openModal(p)}
+        >
+          <h3 className="text-2xl font-semibold mb-2">{p.title}</h3>
+          <p className="text-gray-300 mb-4">{p.desc}</p>
+          <span className="text-sm underline">Details</span>
+        </div>
+      );}
+    ReactDOM.createRoot(document.getElementById('skillsRoot')).render(
+      skills.map(s=> <SkillCard key={s.title} {...s}/> )
+    );
+    ReactDOM.createRoot(document.getElementById('projectsRoot')).render(
+      projects.map(p=> <ProjectCard key={p.title} p={p}/> )
+    );
+  </script>
+
+  <!-- 共享脚本 -->
+  <script src="main.js"></script>
+</body>
+</html>
