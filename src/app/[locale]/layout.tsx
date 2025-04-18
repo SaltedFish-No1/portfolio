@@ -6,6 +6,7 @@ import { routing } from '@/i18n/routing';
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/context/ThemeProvider";
 import Header from "@/components/Header";
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
   title: "Haotian Chen | Graduate Student",
