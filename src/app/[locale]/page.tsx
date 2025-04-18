@@ -2,7 +2,6 @@
 
 import About from '@/components/About';
 import Hero from '@/components/Hero';
-import { useTranslations } from 'next-intl'
 import PageContainer from '@/components/PageContainer';
 import SkillsSection from '@/components/SkillsSection';
 import ProjectList from '@/components/ProjectList';

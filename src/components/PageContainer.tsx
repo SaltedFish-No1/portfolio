@@ -16,15 +16,20 @@ interface PageContainerProps {
     children: ReactNode
 }
 
-export default function PageContainer({ isAnimating,children }: PageContainerProps) {
+export default function PageContainer({ isAnimating, children }: PageContainerProps) {
     const shouldReduce = useReducedMotion()
     const rawX = useMotionValue(0)
     const rawY = useMotionValue(0)
 
     // smoother spring for tilt
     const springOptions = { stiffness: 160, damping: 20 }
-    const springX = shouldReduce ? rawX : useSpring(rawX, springOptions)
-    const springY = shouldReduce ? rawY : useSpring(rawY, springOptions)
+    const springX = useSpring(rawX, springOptions) 
+    const springY = useSpring(rawY, springOptions)
+    if (shouldReduce) {
+        springX.set(rawX.get())
+        springY.set(rawY.get())
+    }
+
 
     // dynamic light gradient
     const lx = useTransform(springY, [-15, 15], ['0%', '100%'])
@@ -36,51 +41,51 @@ export default function PageContainer({ isAnimating,children }: PageContainerPro
       transparent 70%
     )`
     if (isAnimating) {
-    // pointer move for desktop
-    useEffect(() => {
-        if (shouldReduce) return
-        let frame = 0
-        const onPointerMove = (e: PointerEvent) => {
-            cancelAnimationFrame(frame)
-            frame = requestAnimationFrame(() => {
-                const w = window.innerWidth
-                const h = window.innerHeight
-                const dx = e.clientX - w / 2
-                const dy = e.clientY - h / 2
-                const max = 12
-                rawY.set((dx / (w / 2)) * max)
-                rawX.set((-dy / (h / 2)) * max)
-                document.documentElement.style.setProperty('--lx', `${e.clientX}px`)
-                document.documentElement.style.setProperty('--ly', `${e.clientY}px`)
-            })
-        }
-        const onPointerLeave = () => {
-            rawX.set(0)
-            rawY.set(0)
-        }
-        window.addEventListener('pointermove', onPointerMove, { passive: true })
-        window.addEventListener('pointerleave', onPointerLeave)
-        return () => {
-            window.removeEventListener('pointermove', onPointerMove)
-            window.removeEventListener('pointerleave', onPointerLeave)
-            cancelAnimationFrame(frame)
-        }
-    }, [rawX, rawY, shouldReduce])
+        // pointer move for desktop
+        useEffect(() => {
+            if (shouldReduce) return
+            let frame = 0
+            const onPointerMove = (e: PointerEvent) => {
+                cancelAnimationFrame(frame)
+                frame = requestAnimationFrame(() => {
+                    const w = window.innerWidth
+                    const h = window.innerHeight
+                    const dx = e.clientX - w / 2
+                    const dy = e.clientY - h / 2
+                    const max = 12
+                    rawY.set((dx / (w / 2)) * max)
+                    rawX.set((-dy / (h / 2)) * max)
+                    document.documentElement.style.setProperty('--lx', `${e.clientX}px`)
+                    document.documentElement.style.setProperty('--ly', `${e.clientY}px`)
+                })
+            }
+            const onPointerLeave = () => {
+                rawX.set(0)
+                rawY.set(0)
+            }
+            window.addEventListener('pointermove', onPointerMove, { passive: true })
+            window.addEventListener('pointerleave', onPointerLeave)
+            return () => {
+                window.removeEventListener('pointermove', onPointerMove)
+                window.removeEventListener('pointerleave', onPointerLeave)
+                cancelAnimationFrame(frame)
+            }
+        }, [rawX, rawY, shouldReduce])
 
-    // device orientation for mobile
-    useEffect(() => {
-        if (shouldReduce) return
-        const onOrient = (e: DeviceOrientationEvent) => {
-            if (e.gamma == null || e.beta == null) return
-            const max = 10
-            rawY.set((e.gamma / 45) * max)
-            rawX.set((-e.beta / 45) * max)
-        }
-        window.addEventListener('deviceorientation', onOrient)
-        return () => window.removeEventListener('deviceorientation', onOrient)
-    }, [rawX, rawY, shouldReduce])
-    
-        }
+        // device orientation for mobile
+        useEffect(() => {
+            if (shouldReduce) return
+            const onOrient = (e: DeviceOrientationEvent) => {
+                if (e.gamma == null || e.beta == null) return
+                const max = 10
+                rawY.set((e.gamma / 45) * max)
+                rawX.set((-e.beta / 45) * max)
+            }
+            window.addEventListener('deviceorientation', onOrient)
+            return () => window.removeEventListener('deviceorientation', onOrient)
+        }, [rawX, rawY, shouldReduce])
+
+    }
     return (
         <section className="relative min-h-screen w-full overflow-hidden bg-transparent">
             {/* Stage light overlay */}

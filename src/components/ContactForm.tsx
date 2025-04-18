@@ -11,7 +11,7 @@ export default function ContactForm() {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
-    const [shake, _setShake] = useState(false)
+    const [shake] = useState(false)
     const formRef = useRef<HTMLFormElement>(null)
 
     // Debounced values for draft saving
