@@ -22,8 +22,9 @@ export default function Page({ params }: { params: { lang: string } }) {
       <PageContainer>
         <ProjectList />
         <ContactForm />
-        <Footer />
       </PageContainer>
+      <Footer />
+
     </section>
   );
 }
