@@ -6,34 +6,16 @@ import { routing } from '@/i18n/routing';
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { ThemeProvider } from "@/context/ThemeProvider";
-import { Doto } from "next/font/google";
-import localFont from "next/font/local";
 import Header from "@/components/Header";
 
-
 export const metadata: Metadata = {
-  title: "Haotian Chen | Frontend Engineer",
+  title: "Haotian Chen | Graduate Student",
+  keywords: ["Haotian Chen", "Frontend Engineer", "Graduate Student"],
   description: "Haotian Chen's personal website",
-}
+};
+import { englishFont, chineseFont } from "@/lib/fonts";
 
-export const englishFont = Doto({
-  subsets: ["latin"],
-  variable: "--font-english",
-  display: "swap",
-  weight: ["400", "700"],
-});
-export const chineseFont = localFont({
-  src: [
-    {
-      path: '../../../public/fonts/NotoSC.ttf',
-      weight: '400 700',
-      style: 'normal',
-    },
-  ],
-  display: 'swap',
-  preload: true,
-  variable: '--font-zh',
-})
+
 
 export default async function LocaleLayout({
   children,

@@ -53,6 +53,13 @@
     font-family: var(--font-en), var(--font-zh), sans-serif;
   }
 
+  html:lang(en) {
+    font-family: var(--font-english), system-ui, sans-serif;
+  }
+  html:lang(zh) {
+    font-family: var(--font-zh), system-ui, sans-serif;
+  }
+
   /* 基础排版 */
   body {
     font-family: ui-sans-serif, system-ui, sans-serif;

@@ -14,10 +14,10 @@ export default function Page() {
       <PageContainer>
         <Hero />
         <About />
-        <SkillsSection />
       </PageContainer>
-        <ProjectList />
-        <ContactForm />
+      <SkillsSection />
+      <ProjectList />
+      <ContactForm />
       <Footer />
 
     </section>
