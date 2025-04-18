@@ -28,13 +28,13 @@ export default function ProjectModal({
         onClick={(e) => e.stopPropagation()}
       >
         {/* 关闭按钮 */}
-        <button
+        {/* <button
           aria-label={t(`${project.id}.title`)}
           className="absolute right-4 top-4 text-xl"
           onClick={onClose}
         >
           <X className="w-6 h-6" />
-        </button>
+        </button> */}
 
         {/* 封面图 */}
         <div className="relative mb-4 h-64 w-full rounded-lg">
