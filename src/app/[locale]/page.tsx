@@ -10,8 +10,6 @@ import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
 
 export default function Page() {
-
-  const t = useTranslations()
   return (
     <section className="p-6">
       <PageContainer isAnimating={true}>
