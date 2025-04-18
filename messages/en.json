@@ -9,5 +9,18 @@
     "proficiencyAdvanced": "Advanced",
     "proficiencyIntermediate": "Intermediate",
     "proficiencyBasic": "Basic"
+  },
+  "Header": {
+    "logo": "HC",
+    "nav": {
+      "home": "Home",
+      "projects": "Projects",
+      "blogs": "Blogs"
+    },
+    "aria": {
+      "siteNavigation": "Site navigation",
+      "home": "Go to homepage",
+      "toggleMenu": "Toggle menu"
+    }
   }
 }

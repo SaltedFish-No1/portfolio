@@ -9,6 +9,19 @@
     "proficiencyAdvanced": "熟练",
     "proficiencyIntermediate": "熟悉",
     "proficiencyBasic": "了解"
+  },
+  "Header": {
+    "logo": "HC",
+    "nav": {
+      "home": "首页",
+      "projects": "项目",
+      "blogs": "博客"
+    },
+    "aria": {
+      "siteNavigation": "站点导航",
+      "home": "前往首页",
+      "toggleMenu": "切换菜单"
+    }
   }
 
 }

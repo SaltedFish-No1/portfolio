@@ -75,7 +75,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative h-screen w-full flex items-center justify-center overflow-hidden px-4 sm:px-6"
+      className="relative w-full flex items-center justify-center overflow-hidden px-4 sm:px-6"
       onPointerMove={handlePointerMove}
       onPointerLeave={reset}
     >
