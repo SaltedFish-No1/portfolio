@@ -75,7 +75,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative w-full flex items-center justify-center overflow-hidden px-4 sm:px-6"
+      className="relative w-full pt-8 pb-8 flex items-center justify-center overflow-hidden px-4 sm:px-6"
       onPointerMove={handlePointerMove}
       onPointerLeave={reset}
     >
@@ -117,7 +117,7 @@ export default function Hero() {
         <motion.span
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute bottom-6 text-white/70"
+          className="absolute bottom-6 text-[var(--color-primary)] animate-bounce"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

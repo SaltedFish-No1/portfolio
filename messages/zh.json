@@ -22,6 +22,46 @@
       "home": "前往首页",
       "toggleMenu": "切换菜单"
     }
+  },
+  "ProjectList": {
+    "sectionTitle": "部分项目",
+    "categories": {
+      "all": "全部",
+      "web": "网页",
+      "game": "游戏",
+      "academic": "学术",
+      "other": "其他"
+    },
+    "aria": {
+      "viewProject": "查看项目：{title}"
+    }
+  },
+  "projects": {
+    "aiResume": {
+      "title": "AI 简历生成器",
+      "description": "使用 GPT 驱动的 Next.js 现代化简历生成器，支持实时预览与 PDF 导出。",
+      "details": "技术栈：Next.js、Tailwind CSS、Firebase Auth、OpenAI API；借助 react‑pdf 输出可打印的 PDF 简历。"
+    },
+    "portfolio": {
+      "title": "个人作品集网站",
+      "description": "受 Nothing Phone 极简美学启发的透明动效作品集网站。",
+      "details": "使用 Next.js App Router、Tailwind CSS V4、Framer Motion 与 CSS‑first 玻璃拟态系统构建。"
+    },
+    "ghostHunter": {
+      "title": "捉鬼猎人",
+      "description": "基于 OpenGL 的第一人称射击游戏，在鬼屋中用吸尘器收服幽灵。",
+      "details": "采用 C++ 与 OpenGL 开发；玩家扮演猎人，在鬼屋内吸收幽灵完成挑战。"
+    },
+    "conceptDrift": {
+      "title": "音频深度伪造检测中的概念漂移",
+      "description": "探究生成模型演进对音频深度伪造检测泛化性的影响。",
+      "details": "研究概念漂移（生成音频分布变化）如何导致模型过拟合与泛化失败。"
+    },
+    "subdomainSecurity": {
+      "title": "日本子域名 TLS 安全测量",
+      "description": "针对日本子域名 TLS 配置与证书不匹配的测量研究。",
+      "details": "分析 2 万余日本站点的 TLS 版本、证书链与 HSTS 策略，比较头部与随机域名差异。"
+    }
   }
 
 }

@@ -22,5 +22,45 @@
       "home": "Go to homepage",
       "toggleMenu": "Toggle menu"
     }
+  },
+  "ProjectList": {
+    "sectionTitle": "Selected Projects",
+    "categories": {
+      "all": "All",
+      "web": "Web",
+      "game": "Game",
+      "academic": "Academic",
+      "other": "Other"
+    },
+    "aria": {
+      "viewProject": "View project: {title}"
+    }
+  },
+  "projects": {
+    "aiResume": {
+      "title": "AI Resume Generator",
+      "description": "A modern Next.js web app that generates resumes powered by GPT. Features real‑time preview and PDF export.",
+      "details": "Built with Next.js, Tailwind CSS, Firebase Auth, and OpenAI API. Used react‑pdf to render export‑ready resumes."
+    },
+    "portfolio": {
+      "title": "Portfolio Website",
+      "description": "A transparent, minimal, and animated portfolio website inspired by the Nothing Phone aesthetic.",
+      "details": "Built with Next.js App Router, Tailwind CSS V4, Framer Motion, and a CSS‑first glassmorphism system."
+    },
+    "ghostHunter": {
+      "title": "Ghost Hunter",
+      "description": "An OpenGL‑powered FPS game where you vacuum up ghosts in a haunted house. Built with C++ and Visual Studio.",
+      "details": "Ghost Hunter is a simple FPS game developed using C++ and OpenGL. Use a vacuum cleaner to capture ghosts in a haunted house."
+    },
+    "conceptDrift": {
+      "title": "Concept Drift in Audio Deepfake Detection",
+      "description": "An academic study on how evolving generative models affect audio deepfake‑detection generalization.",
+      "details": "Investigates how concept drift—changes in generative‑audio distributions—contributes to model overfitting and generalization failure."
+    },
+    "subdomainSecurity": {
+      "title": "Subdomain Security in Japan",
+      "description": "A measurement study on TLS configurations and certificate mismatches in Japanese subdomains.",
+      "details": "Analyzes TLS configurations and certificate mismatches in 20 000+ Japanese websites, comparing top‑ranked and random domains."
+    }
   }
 }
